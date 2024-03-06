@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jamb.com</title>
+    <style>
+       .div0{
+           display:none;
+       } input[type=text],input[type=button],input[type=email],input[type=date],input[type=password]{
+            width: 100%;
+            margin-bottom:20px;
+            outline:none;
+            height: 40px;
+            border:none;
+            background-color:#f1f1f1;
+            font-size:20px;
+        }
+        body{
+           text-align:middle;
+           background-color:#f1f1f1 ;
+           padding:0px;
+        }
+        .div{
+            background-color: #04aa6d;
+            margin-top:10%;
+            margin-left:5px;
+            padding:20px;
+            border-radius:3px;
+        }    
+        .p{
+            font-size:20px;
+        }
+    </style>
+    <script>
+        var name,email,sel,pass,Rname,Rpass,pass1,sec,second,minute,date;
+        sec=30*1;
+        second=parseInt(sec%60)
+        minute=parseInt(sec/60)
+        function change(a,b) {
+        document.getElementById(a).style.display="none"
+        document.getElementById(a).style.backgroundColor="none";
+        document.getElementById(b).style.display="block" 
+        }
+        function time() {
+            
+        }
+        function sigUp() {
+          name=document.form1.name.value.trim();
+         pass=document.form1.pass.value;
+       pass1=document.form1.pass1.value;
+       email=document.form1.email.value.trim();
+       sel=document.getElementById('sel');
+       date=document.getElementById("date")
+       var d=new Date(date.value)
+       var u=new Date()
+       if(name.length < 3 || name=="") {
+          document.getElementById("pa0").innerHTML="please enter correct surname"
+          return false 
+       }else if(email.length < 5 || !email.match("@") || !email.match(".com")) {
+           document.getElementById("pa0").innerHTML="please enter correct email"
+           return false
+       }else if(pass.length<4) {
+           document.getElementById("pa0").innerHTML="please enter correct Password"
+           return false
+       }else if(pass!=pass1) {
+           document.getElementById("pa0").innerHTML="please Password does not match"
+           return false
+       }else if(sel.value=="") {
+          document.getElementById("pa0").innerHTML="please select the course"
+          return false 
+       }else if(u.getFullYear()-d.getFullYear() < 18 || date.value=="") {
+     document.getElementById("pa0").innerHTML="You are too young to have account here"
+       }else{ document.getElementById("pa0").innerHTML="";
+        comf();
+        return true
+       }      
+        }
+        function comf(){
+          var c=confirm(name+" are for the quiz") 
+          if(c==true) {
+            alert("You have 20 Question within 5 minute");
+            change("div1","div2")
+            return true;
+          }else {
+          form1.reset()
+            return false  
+          } 
+        }
+    </script>
+</head>
+<body>
+    <div class="div" id="div1">
+        <p><b>WWW.ISMAILCBT.COM</b></p>
+        <form name="form1" id="form1">
+                Surname
+           <input type="text" name="name" placeholder=""> 
+           
+           </br>
+           Email
+           <input type="email" name="email" placeholder="">
+           </br>
+           Password
+           <input type="password" name="pass">
+           </br>
+           Comfirm Password
+           <input type="password" id="pass1">
+           </br>
+           Date of Birth
+           <input type="date" id="date">
+           </br>
+           Course</br>
+           <select id="sel">
+               <option value="" selected>Select Me</option>
+               <option value="mathematics">Mathematics</option>
+               <option  value="computer">Computer Science</option>
+           </select></br>
+           <p id="pa0"></p>
+           </br>
+           <input type="button" value="Sign Up" onclick="sigUp()">
+        </form>
+    </div>
+    <form id="div2" style="background:#00bfff;padding:20px;" class="div0" name="form2">
+          
+           <div id="1" class="d">
+                <p><b>Computer Science</b></p>
+           1. Computer is an/a .......device</br>
+           <input type="radio" value="a" name="opt1">A. Out put</br>
+           <input type="radio" value="b" name="opt1">B. Electronic or electro-mechanical</br>
+           <input type="radio" value="c" name="opt1">C. Mechanical </br>
+           <input type="radio" name="opt1" value="d">D. Machine</br>
+            2. Which of the following is an example of analog Computer</br>
+           <input type="radio" value="a" name="opt2">A. Analog Signal</br>
+           <input type="radio" value="b" name="opt2">B. Amplifier</br>
+           <input type="radio" value="c" name="opt2">C. Analog Clock</br>
+           <input type="radio" name="opt2" value="d">D. Speedometre
+           </br>
+            3. Who is the father of modern Computer</br>
+           <input type="radio" value="a" name="opt3">A. George Boole</br>
+           <input type="radio" value="b" name="opt3">B. Ismail al-jari</br>
+           <input type="radio" value="c" name="opt3">C. Usman Yahya Course Reps</br>
+           <input type="radio" name="opt3" value="d">D. Auwal Muhammad Ahmad</br>
+            4. All these are type of computer except</br>
+           <input type="radio" value="a" name="opt4">A. Analog Computer</br>
+           <input type="radio" value="b" name="opt4">B. Digital Computer</br>
+           <input type="radio" value="c" name="opt4">C. Hybrid Computer </br>
+           <input type="radio" name="opt4" value="d">D. Analog Signal</br>
+            5. Which of the following is not a display device</br>
+           <input type="radio" value="a" name="opt5">A. Cathode ray tube monitor</br>
+           <input type="radio" value="b" name="opt5">B. Flat panel display</br>
+           <input type="radio" value="c" name="opt5">C. Sensor</br>
+           <input type="radio" name="opt5" value="d">D. Gas plasma Monitor</br>
+           </br></br>
+           <input type="button" value="Next" onclick="change('1','2')" style="background: #04aa6d; width: 50%;margin-left:50%;">
+           </div><div id="2" class="div0">
+            6. All these are type of amplifier except</br>
+           <input type="radio" value="a" name="opt6">A. Monitor amplifier</br>
+           <input type="radio" value="b" name="opt6">B. Radio amplifier</br>
+           <input type="radio" value="c" name="opt6">C. Buffer amplifier </br>
+           <input type="radio" name="opt6" value="d">D. Ultrasonic </br>
+            7. All these are types of interrupt except</br>
+           <input type="radio" value="a" name="opt7">A. Normal interrupt</br>
+           <input type="radio" value="b" name="opt7">B. Hardware </br>
+           <input type="radio" value="c" name="opt7">C. Maskable</br>
+           <input type="radio" name="opt1" value="d">D. Non of the above
+           </br>
+            8. One among these mentions is a concept of data in database</br>
+           <input type="radio" value="a" name="opt8">A. Persistence</br>
+           <input type="radio" value="b" name="opt8">B. To store data</br>
+           <input type="radio" value="c" name="opt8">C. To manipulate data</br>
+           <input type="radio" name="opt8" value="d">D. Amplifier</br>
+            9. Operating system is use to....</br>
+           <input type="radio" value="a" name="opt9">A. To store user data</br>
+           <input type="radio" value="b" name="opt9">B. To handle bug and error</br>
+           <input type="radio" value="c" name="opt9">C. To make Computer system efficient to use</br>
+           <input type="radio" name="opt9" value="d">D. All of the above</br>
+            10. What is the meaning of OOP</br>
+           <input type="radio" value="a" name="opt10">A. Object oriented programming</br>
+           <input type="radio" value="b" name="opt10">B. Objective of programming</br>
+           <input type="radio" value="c" name="opt10">C. Orientation of people</br>
+     <input type="radio" name="opt10" value="d">D. Non of the above</br></br>
+             <input type="button" value="Previous" onclick="change('2','1')" style="background: #04aa6d; width: 45%;margin-bottom:0px">
+           <input type="button" value="Next" onclick="change('2','3')" style="background: #04aa6d; width: 50%;">
+         </div><div id="3" class="div0">
+           11. What is full meaning of <u>PLA</u></br>
+           <input type="radio" value="a" name="opt11">A. People Local Areas</br>
+           <input type="radio" value="b" name="opt11">B. Parent Location Area</br>
+           <input type="radio" value="c" name="opt11">C. All of the above </br>
+           <input type="radio" name="opt11" value="d">D. Programmable Logic Array </br>
+            12. What is the full meaning of MAN in computer network</br>
+           <input type="radio" value="a" name="opt12">A. Metro Area Network</br>
+           <input type="radio" value="b" name="opt12">B. Man Area Network</br>
+           <input type="radio" value="c" name="opt12">C. None of the below</br>
+           <input type="radio" name="opt12" value="d">D. All of the above
+           </br>
+            13. Who is computer scientist</br>
+           <input type="radio" value="a" name="opt13">A. A person who design and implement</br>
+           <input type="radio" value="b" name="opt13">B. Abdul Hafiz Yahuza</br>
+           <input type="radio" value="c" name="opt13">C. A person Who known Programming</br>
+           <input type="radio" name="opt13" value="d">D. A person who study theory of computation</br>
+            14. These People are Computer scientist except</br>
+           <input type="radio" value="a" name="opt14">A. Abdulsalam Ismail Maina</br>
+           <input type="radio" value="b" name="opt14">B. Abdul-Hadee Muhammad</br>
+           <input type="radio" value="c" name="opt14">C. Pano Mboh </br>
+           <input type="radio" name="opt14" value="d">D. Ismail Muhammad Ahmad😎</br>
+           <input type="radio" value="e" name="opt14">E. Assudan2😎</br>
+            15. All these are type Keys in keyboard except</br>
+           <input type="radio" value="a" name="opt1">A. Function keys</br>
+           <input type="radio" value="b" name="opt1">B. Number keys</br>
+           <input type="radio" value="c" name="opt1">C. Numeric Keys</br>
+           <input type="radio" name="opt1" value="d">D. Alphabetic Kays</br>
+           </br>
+             <input type="button" value="Previous" onclick="change('3','2')" style="background: #04aa6d; width: 45%;margin-bottom:0px">
+           <input type="button" value="Next" onclick="change('3','4')" style="background: #04aa6d; width: 50%;">
+           </div><div id="4" class="div0">
+            16. How many generation of computer</br>
+           <input type="radio" value="a" name="opt16">A. Five</br>
+           <input type="radio" value="b" name="opt16">B. Six</br>
+           <input type="radio" value="c" name="opt16">C. Zero</br>
+           <input type="radio" name="opt16" value="d">D. Ten<sup>2</sup></br>
+            17. One among these mentions is a feature of primary memory</br>
+           <input type="radio" value="a" name="opt17">A. Can not access directly by CPU</br>
+           <input type="radio" value="b" name="opt17">B. Cheaper Price</br>
+           <input type="radio" value="c" name="opt17">C. Low power consumption  </br>
+           <input type="radio" name="opt17" value="d">D. High Storage Capacity
+           </br>
+            18. All these are factors affecting Performance of hard disk excet</br>
+           <input type="radio" value="a" name="opt18">A. Spindle Speed</br>
+           <input type="radio" value="b" name="opt18">B. Latency</br>
+           <input type="radio" value="c" name="opt18">C. Seek time</br>
+           <input type="radio" name="opt18" value="d">D. Resolution</br>
+            19. What is the full meaning of CPU</br>
+           <input type="radio" value="a" name="opt19">A. Central Processing Unit</br>
+           <input type="radio" value="b" name="opt19">B. Control Processing Unit</br>
+           <input type="radio" value="c" name="opt19">C. Central Programming Unit </br>
+           <input type="radio" name="opt19" value="d">D. Control profit Union</br>
+           20. Computer hardware include all these except</br>
+           <input type="radio" value="a" name="opt20">A. Printer</br>
+           <input type="radio" value="b" name="opt20">B. Monitor</br>
+           <input type="radio" value="c" name="opt20">C. Mouse</br>
+           <input type="radio" name="opt20" value="d">D. Machine</br></br>
+             <input type="button" value="Previous" onclick="change('4','3')" style="background: #04aa6d; width: 45%;margin-bottom:0px">
+           <input type="button" value="Submit" onclick="change('4','5')" style="background: #04aa6d; width: 50%;">
+        </form>
+    </div>
+    <div id="5" class="div0">
+        <h3>Special Thanks to All I am Ismail Muhammad Ahmad also as Assudan2</h3>
+        <h5>this where you will check your result or logout</h5>
+        <input type="button" value="Result" onclick="change('5','6')" style="background: #04aa6d; width: 45%;margin-bottom:0px">
+           <input type="button" value="Log Out" onclick="" style="background: #04aa6d; width: 50%;"></div>  
+    <div style="background: #0ff;padding: 20px;" class="div0" id="6">
+        <form name="form3">
+            <input type="text" name="Rname">
+            <input type="password" name="Rpass"></br>
+            Show Password 
+            <input type="checkbox" onclick="">
+            <p id="Rpa"></p>
+        </form>
+    </div>
+</body>
+</html>
+</html>
